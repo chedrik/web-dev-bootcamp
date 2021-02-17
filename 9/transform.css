@@ -1,0 +1,72 @@
+h1 {
+    background-color: #2a9d8f;
+    border: 5px solid #264653;
+    color: #eae2b7;
+    padding: 0.7em;
+    width: 300px;
+    font-size: 1.8em;
+    text-align:center;
+    margin: 20px auto;
+    /* auto puts dead middle w.r.t. container */
+    font-family: Courier New;
+    font-weight: lighter;
+}
+
+h1:nth-of-type(2n) {
+    background-color: #e9c46a;
+}
+h1:nth-of-type(3n) {
+    background-color: #f4a261;
+}
+h1:nth-of-type(4n) {
+    background-color: #e76f51;
+}
+
+section:first-of-type h1:nth-of-type(1) {
+    transform: rotate(45deg);
+    /* Can also rotate around a specific axis */
+
+    /* transform-origin: top right; */
+    /* Rotates around the center of the object by default */
+}
+
+section:first-of-type h1:nth-of-type(2) {
+    transform: scale(0.5);
+    /* Can also scale around a specific axis, or scale 
+    width and height separately */
+}
+
+section:first-of-type h1:nth-of-type(3) {
+    transform: translateX(200px);
+    /* Similarly, lots of translate options */
+}
+
+section:first-of-type h1:nth-of-type(4) {
+    transform: translate(-200px, 50px);
+}
+
+section:nth-of-type(2) h1:nth-of-type(1) {
+    transform: skew(30deg);
+    /* Similarly, many options. Distorts the container */
+}
+
+section:nth-of-type(2) h1:nth-of-type(2) {
+    transform: skew(-10deg, -10deg);
+}
+
+section:nth-of-type(2) h1:nth-of-type(3) {
+    transform: rotate(40deg) scale(0.6);
+    /* Can do multiple items on same line, 
+    space separated*/
+}
+
+section:nth-of-type(2) h1:nth-of-type(4) {
+    transform: rotate(180deg) translateX(100px);
+    /* Can do multiple items on same line, 
+    space separated*/
+}
+
+section:nth-of-type(2) {
+    /* Applies to everything within a container!! */
+    transform: scale(1.1) translateX(300px);
+}

@@ -1,0 +1,15 @@
+img {
+    width: 30%;
+    margin: calc(10%/6);
+    /* Would be better w/ a flexbox! */
+}
+
+nav {
+    width: 30%;
+    text-transform: uppercase;
+    border-bottom: 2px #f1f1f1 solid;
+    padding: 1em 0;
+    margin-left: calc(10%/6);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25em;
+}

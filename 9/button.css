@@ -1,0 +1,31 @@
+body {
+    /* Black magic to center button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    background-color: #151b29;
+}
+
+button {
+    background: none;
+    color: #ffa260;
+    border: 2px solid;
+    padding: 1em 2em;
+    font-size: 1em;
+    border-radius: 0.5em;
+}
+
+button:hover {
+    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    /* x,y,blur,spread */
+
+    transform: translate(0.15em, -.25em);
+    transition: all 0.15s;
+    /* semi bad idea to use 'all' */
+
+    cursor: pointer;
+}

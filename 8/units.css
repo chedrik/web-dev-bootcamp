@@ -1,0 +1,81 @@
+section {
+    background-color: palegoldenrod;
+    width: 300px;
+    height: 300px;
+}
+
+div {
+    background-color: palevioletred;
+    width: 50%;
+    height: 50%;
+    /* 50% relative to the size of the section, its parent element */
+}
+
+h1 {
+    font-size: 40px;
+    border: 1px solid black;
+    line-height: 125%;
+    /* Relative to the font size! */
+}
+
+article {
+    border: 1px black solid;
+}
+
+#ems {
+    font-size: 20px;
+}
+
+#ems h2 {
+    font-size: 2em;
+    /* twice the parent font size, which is defined in the article */
+
+    margin-left: 1em;
+    /* em for this is realtive to current font size (2*20px) */
+}
+
+#ems p {
+    font-size: 0.5em;
+    /* Half the parent (article) font size */
+}
+
+#ems button {
+    font-size: 2em;
+    padding: 0 .8em;
+    border-radius: .5em;
+}
+
+#ems ul {
+    font-size: 1.5em;
+    /* Nested UL here makes the deeper nesting get larger if
+    we use 'em', because it is relative to the direct root element */
+}
+
+html {
+    font-size: 10px;
+    /* This is the root element for rems */
+}
+
+#rems {
+    font-size: 20px;
+}
+
+#rems h2 {
+    font-size: 3rem;
+
+    margin-left: 1rem;
+}
+
+#rems p {
+    font-size: 0.75rem;
+}
+
+#rems button {
+    font-size: 2rem;
+    padding: 0 .8rem;
+    border-radius: .5rem;
+}
+
+#rems ul {
+    font-size: 1.5rem;
+}

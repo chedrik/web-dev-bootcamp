@@ -1,0 +1,78 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+#container {
+    background-color: #003049;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    border: 5px solid red;
+    /* "Turns on" flexbox! */
+    display: flex;
+
+    /* flex -direction changes the main / cross axis. Defaults to row*/
+    flex-direction: row;
+
+    /* where the flexing should be referenced to. Default w/ flex-start. 
+    Based on the flex-direction.
+    space-X options add dynamic space everywehre */
+    justify-content: space-evenly;
+
+    /* Makes it use the cross-axis when space is too small
+    wrap-reverse will change the direction of the cross axis */
+    flex-wrap: wrap;
+
+    /* cross-axis alignment, similar to justify content. Default is still flex-start */
+    align-items: flex-start;
+
+    /* cross axis spacing, only when theres wrapping */
+    /* align-content: center; */
+
+}
+
+#container div {
+    width: 100px;
+    height: 75px;
+
+    /*  This makes the width/ehight totally ignored based on main axis*/
+    flex-basis: 100px;
+
+}
+
+div:nth-of-type(5) {
+    /* element wise 'align-content' instead of container wise */
+    align-self: flex-end;
+    flex-grow: 1;
+}
+
+div:nth-of-type(1) {
+    /* Unitless # to show how much the element should grow when there is available space */
+    flex-grow: 2;
+
+    /* Same as flex-grow */
+    flex-shrink: 3;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    border: 5px solid black;
+    height: 250px;
+    display: flex;
+}
+
+main .sidebar {
+    background-color: purple;
+    border: 2px solid white;
+    flex: 1 2 150px;
+}
+
+main .main {
+    background-color: green;
+    /* flex shorthand, can do fles bsis, grow, nd shrink 
+    if 3 values, its grow, shrink, basis*/
+    flex: 2.5 1 600px;
+}

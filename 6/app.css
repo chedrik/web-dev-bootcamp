@@ -1,0 +1,25 @@
+h3 {
+    color: teal;
+    background-color: yellow;
+}
+
+button {
+    color: magenta;
+    background-color: cyan;
+}
+
+p {
+    color: olive;
+    background: peachpuff;
+    /* background is technically different than background-color */
+}
+
+h4 {
+    color: rgb(117, 195, 201);
+    background-color: #c5da55;
+}
+
+body {
+    background-color: #a10;
+    /* Can shorten from 6 -> digit if each of the digits is the same. ie. cc55ee = c5e */
+}

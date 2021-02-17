@@ -1,0 +1,110 @@
+/* * {   This selects every element and tries to apply the same style
+    color: grey;
+} */
+
+body {
+    background-color: #f1faee;
+}
+
+button {
+    font-size: 30px;
+    background-color: #a8dadc;
+}
+h1 {
+    color: red;
+    /* this wont show up due to the next item.
+    'Cascading' priority, ie. items later in the document
+    or in another style sheet */
+}
+
+h1, h2 {   
+    /* Selects every h2 & h1 */
+    color: #1d3557
+}
+
+#signup { 
+    /* Select by ID, which MUST be unique */
+    background-color:#1d3557;
+    color: #f1faee;
+}
+
+span {
+    color: #457b9d;
+}
+
+.tag { 
+    /* Selects by class, which can be used by many elements. 
+    They do not need to be the same type of element*/
+    background-color: #e63946;
+    color: #f1faee;
+    font-size: 16px;
+}
+
+.post span a {
+    /* Selects all 'a' that are nested with 'span' under a 'post' class
+    which in this case is the usernames for who posted.
+    Can be nested as much as desired, combined with other selectors, etc. */
+    color: #457b9d;
+    text-decoration: none;
+}
+
+footer a {
+    /* Can be nested ANYWHERE under a footer, as long as it is a descendent */
+    color: #e63946;
+}
+
+h2 + button {
+    /* Anytime a button immediately follows an h2 on the same level */
+    background-color: pink;
+    font-size: 20px;
+}
+
+footer > a {
+    /* Selects 'a' which are the DIRECT descendent of a footer */
+    color: #457b9d;
+}
+
+input[type="password"] {
+    /* Selects inputs with attribute 'type' equal to text.
+    section[class="post"] is the same as section.post */
+    color: green;
+}
+
+a[href*="google"] {
+    /* *= means that 'google' is anywhere within the anchor tag.
+    There are multiple other examples of matching patterns like this */
+    color:magenta;
+}
+
+button:hover {
+    /* :hover means when the 'button' element is hovered over 
+    Note that this wont work for the 'Sign up' button due to specificity. 
+    :hover is a 'pseudo class' */
+    background-color: #e63946;
+    color: #f1faee;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
+#signup:active {
+    /* Will change the color when being clicked only, also a pseudo-class */
+    background-color: #2a9d8f;
+}
+
+.post:nth-of-type(2n){
+    /* Single digit means select the nth item only,
+    if you use 2n == every 2nd element*/
+    background-color: #eddcd2;
+}
+
+h2::first-letter {
+    /* 'pseudo element' with ::. Pieces of an element,
+    whereas pseudo class is states */
+    font-size:50px;
+}
+
+h2::selection {
+    background-color: yellow;
+}

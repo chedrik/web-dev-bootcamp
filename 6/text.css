@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+    font-weight: bolder;
+    /* Text aligns within the elemnt, not the page itself */
+    letter-spacing: 15px;
+    /* font-family: Verdana; Simplest */
+    font-family: Segoe UI, Impact;
+    /* Comma is the list of fonts we desire to use, in order */
+    /* Can also specify a family of fonts, ex sans-serif, monospace */
+}
+
+p {
+    text-align: right;
+    line-height: 1.5;
+    /* Line spacing, can use multiple type of unit. Height of the line itself, not text. */
+}
+
+h2 {
+    font-weight: 200;
+    text-decoration: blue wavy overline;
+    /* Browser will pick the closest size if selected is not available */
+}
+
+a {
+    text-decoration: none;
+    /* Removes the underline */
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 10px;
+    /* Pixels not recommended! Not good for responsiveness */
+}

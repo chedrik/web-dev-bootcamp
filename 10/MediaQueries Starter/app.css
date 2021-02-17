@@ -1,0 +1,103 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 6em;
+    text-align: center;
+}
+nav {
+    font-size: 1.5em;
+    display: flex;
+    /* The elements inside are smartly grouped to have 3 sections */
+    justify-content: space-between;
+}
+
+
+ul {
+    border: 1px solid black;
+    flex: 1;
+    max-width: 50%;
+    /* Nested flex boxes! */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ul,li {
+    /* Careful, this display can overide the flex properties above! */
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+/* When the width is exactly 593 */
+/* @media (width: 593px) {
+    h1 {
+        color: red;
+    }
+} */
+
+/* From size 600 -700 */
+/* @media (max-width: 700px) and (min-width: 600px) {
+    h1 {
+        color:blue;
+    }
+} */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4em;
+    }
+}
+@media (max-width: 576px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    nav, nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Rainbow! */
+@media (min-width: 700px) {
+    h1 {
+        color:orange;
+    }
+}
+@media (max-width: 700px) {
+    h1 {
+        color: red;
+    }
+}
+@media (max-width: 600px) {
+    h1 {
+        color:purple;
+    }
+}
+@media (max-width: 500px) {
+    h1 {
+        color:blue;
+    }
+}
+@media (max-width: 400px) {
+    h1 {
+        color:green;
+    }
+}
+@media (max-width: 300px) {
+    h1 {
+        color: yellowgreen;
+    }
+}
+@media (max-width: 200px) {
+    h1 {
+        color:yellow;
+    }
+}
+@media (orientation: landscape) {
+    h1 {
+        background-color: pink;
+    }
+}

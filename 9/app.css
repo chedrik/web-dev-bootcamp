@@ -1,0 +1,120 @@
+section {
+    width: 500;
+    height: 300;
+    background-color: palegoldenrod;
+}
+
+#rgba {
+    width: 50%;
+    height: 50%;
+    background-color: rgba(255,255,255,0.6);
+    /* the 'a' only affects the background color here, not the text */
+    /* Can also use 00 - ff for 'a' for hex colors */
+}
+
+#opac {
+    width: 50%;
+    height: 50%;
+    background-color:orange;
+    opacity: 0.3;
+    /* Opacity affects the entire element, and all childre.
+    Note the difference here between this and the 'a' of rgba */
+}
+
+button {
+    width: 50px;
+    height: 20px;
+}
+
+#middle {
+    background-color: grey;
+}
+
+#static #middle {
+    position: static;
+    /* Static is the default for position */
+}
+
+#relative #middle {
+    position: relative;
+    top: 25px;
+    /* Offset the block 'relative' to where it normally would be
+     by 25px */
+    left: 10px; 
+    /* Can also use negative values if desired */
+}
+
+#abs #middle {
+    position: absolute;
+    /* Absolute removes the item from 'space' in the flow 
+    of the document. */
+    top: 900px;
+    left: 275px;
+    /* Relative to the closest ancestor that is 'positioned' */
+}
+
+#fix #middle {
+    position: fixed;
+    top: 0px;
+    /* Relative to the containing block ALWAYS.
+    Unlike aboslute, does not change w/ parent blocks.
+    It will stay there even as we scroll the page! */
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border: 2px solid black;
+    margin: 10px;
+    display: inline-block;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    background-color: cyan;
+    /* transition: 0.5s; */
+    /* background color and border-radius will take 1s
+    to change between the properties */
+
+    transition: background-color 1s 0.5s;
+    /* Specify only that property to transition there */
+    /* 0.5s delay, will being transition after */
+
+    transition: margin-left 2s ease-in-out;
+    /* timing function is 'ease-in-out' */
+}
+
+.circle:hover {
+    background-color: hotpink;
+    border-radius: 50%;
+    margin-left: 300px;
+}
+
+#background {
+    width:80%;
+    height: 800px;
+    /* background-color: purple; */
+    margin: 0 auto;
+    /*
+    background-image: url(https://img6.onthesnow.com/image/xl/13/13817.jpg);
+    background-size: cover;
+    size sets how the image goes into the container
+    background-position: bottom;
+    */
+
+    /* shorthand! */
+    background: url(https://img6.onthesnow.com/image/xl/13/13817.jpg) center/cover;
+    /* Size must follow position with '/' */
+
+}
+
+#background h1 {
+    font-size: 100px;
+    color: black;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+}

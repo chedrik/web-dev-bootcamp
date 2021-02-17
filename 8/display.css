@@ -1,0 +1,31 @@
+h1 {
+    background-color: goldenrod;
+    border: 1px solid black;
+    /* Default as a block level element */
+    display: inline;
+    /* Ignores width, height, content around ignores the padding, margin */
+
+}
+
+span {
+    background-color: palegreen;
+    border: 1px solid black;
+    width: 300px;
+    /* Defaults as an inline element */
+    display: block;
+    /* margin, width, padding are followed */
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color:olive;
+    display: inline-block;
+    /* inline block is inline + width, height, padding, margin */
+}
+
+h2 {
+    display: none;
+    /* Object isnt deleted, but it wont be dispalyed */
+}

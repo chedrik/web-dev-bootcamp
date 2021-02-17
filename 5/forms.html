@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>FORMS!</h1>
+    <form action="where_to_submit.com">
+        <p>
+            <!-- Type == button means that it no longer default submits -->
+            <button type="button">
+                Don't submit me yet!
+            </button>
+        </p>
+        <p>
+            <!-- Label for should point to the id! -->
+            <label for="username">Enter your name!</label>
+            <!-- name attribute sets the variable when sent via HTTP -->
+            <input type="text" placeholder="Name goes here" id="username" name="un">
+        </p>
+        <p>
+            <label for="pw">Enter your pw!</label>
+            <input type="password" placeholder="Password" id="pw" name="pw">
+        </p>
+        <p>
+            <label for="color">Pick a color</label>
+            <input type="color" value="#ff0000" id="color" name="col">
+            <label for="num">And a number</label>
+            <input type="number" placeholder="5" id="num" name="num">
+        </p>
+        <p>
+            <label for="test">Would you like to check the box?</label>
+            <input type="checkbox" id="test" name="box">
+        </p>
+        <p>
+            <label for="test2">Would you like to uncheck the box?</label>
+            <input type="checkbox" id="test2" name="box2" checked>
+        </p>
+        <p>
+            <!-- Value must be set for what is sent to server from radio btn -->
+            <!-- Bind the buttons together with same 'name' attribute. Only 1 can be selected -->
+            <div>
+                <label for="s">Small</label>
+                <input type="radio" id="s" name="radio_test" value="0">
+            </div>
+            <div>
+                <label for="m">Medium</label>
+                <input type="radio" id="m" name="radio_test" value="1">
+            </div>
+            <div>
+                <label for="h">Huge</label>
+                <input type="radio" id="h" name="radio_test" value="2">
+            </div>
+        </p>
+        <p>
+            <!-- Value is sent to server, text is user facing -->
+            <label for="select_test">Select from me!!</label>
+            <select name="selecter" id="select_test">
+                <option value="first">Pick me!</option>
+                <option value="second">No me!</option>
+                <option value="third" selected>Me?</option>
+            </select>
+        </p>
+        <p>
+            <!-- Will default to submit type with no specified action -->
+            <button>Submit!</button>
+            <!-- Input type of submit, less common than button, have to set value to change text -->
+            <input type="submit" value="Input submit">
+        </p>
+        <p>
+            <label for="cheese">How much cheese?</label>
+            <!-- min,max,range can apply to the number as well -->
+            <input type="range" name="cheese" id="cheese" min="1" step="20" value="30" max="100">
+        </p>
+        <p>
+            <label for="req">Anything else?</label>
+            <!-- cols, rows is the initial size -->
+            <textarea name="req" id="req" cols="30" rows="10"></textarea>
+        </p>
+    </form>
+    <h2>Search form examples</h2>
+    <form action="https://www.reddit.com/search">
+        <label for="reddit">Search reddit</label>
+        <input type="text" name="q" id="reddit">
+        <button>Search reddit</button>
+    </form>
+    <form action="https://www.google.com/search">
+        <label for="goog">Search google</label>
+        <input type="text" name="q" id="goog">
+        <button>Search google</button>
+    </form>
+    <form action="https://www.youtube.com/results">
+        <label for="ut">Search utube w/o button!</label>
+        <input type="text" name="search_query" id="ut">
+        <!-- <button>Search utube</button> -->
+    </form>
+
+    <h2>Validations</h2>
+    <form action="">
+        <p>
+            <label for="fname">Put ya first here</label>
+            <input type="text" name="fname" id="fname" placeholder="First name" minlength="3" maxlength="6" required>
+        </p>
+        <p>
+            <label for="em">Email</label>
+            <input type="email" id="em" required>
+        </p>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>

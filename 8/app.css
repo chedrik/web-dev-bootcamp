@@ -1,0 +1,62 @@
+div {
+    width:200px;
+    height: 400px;
+}
+
+body {
+    margin: 0px;
+    /* body has default 8px all around*/
+}
+
+h1 {
+    background-color: crimson;
+    width: 350px;
+    padding-left: 75px;
+    border: 4px yellow solid;
+
+    /* margin is the space OUTSIDE border, 
+    while padding is the space INSIDE border */
+    margin: 0;
+    /* h1 has default margins! */
+
+}
+#one {
+    background-color: darkgoldenrod;
+
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    /* Need all 3 of those border properties to make it visible! */
+    margin-left: 50px;
+}
+
+#two {
+    background-color: thistle;
+    border-width: 3px;
+    border-color: green;
+    border-style: dashed;
+    box-sizing: border-box;
+    /* Adding border-width makes the element 200px + 5px*2, 
+    unless box-sizing:border-box is used. 
+    Then, the 200px goes from border edge to border edge */
+
+    border-left-color: honeydew;
+    /* Can set border-side-(width,color,style) */
+}
+
+#three {
+    background-color: teal;
+    border: 4px orange dotted;
+    /* Shorthand with border property width style color */
+    border-radius: 50%;
+    /* % here is % of width and height, by default.
+    Therefore, 50% makes a circle! */
+}
+
+button {
+    /* padding: 20px; All sides */
+    /* padding: 5px 20px; top&bottom, left&right */
+    padding: 5px 10px 15px 20px;
+    /* top right bottom left */
+
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booty</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="app.css"> -->
+</head>
+
+<body>
+    <!-- <nav class="navbar navbar-light bg-light">
+        <!-- Navbar can be in a container if desired -->
+    <!-- <a href="#" class="navbar-brand">The brand</a> -->
+    <!-- </nav> -->
+    <!-- navbar dark changes the text -->
+    <button class="btn btn-large btn-danger">
+        Send me to the trash
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+            viewBox="0 0 16 16">
+            <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+            <path fill-rule="evenodd"
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+        </svg>
+    </button>
+    <nav class="navbar navbar-dark bg-primary navbar-expand-md sticky-top">
+        <a href="#" class="navbar-brand">The brand</a>
+        <!-- target and toggle make the burger actually show the menu. Needs bootstrap JS -->
+        <button class="navbar-toggler" data-target="#primNav" data-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="primNav">
+            <!-- Any item content can be in here. Forms, pics, etc. -->
+            <div class="navbar-nav">
+                <a href="" class="nav-item nav-link">Home</a>
+                <a href="" class="nav-item nav-link">About</a>
+                <a href="" class="nav-item nav-link">Contact</a>
+            </div>
+            <!-- ml auto == auto margine left -->
+            <form action="" class="form-inline ml-auto">
+                <input type="text" class="form-control mr-sm-2">
+                <button class="btn btn-outline-light my-2 my-sm-0">Search</button>
+
+            </form>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1 class="display-1 text-center text-warning">Its a header w/ display 1</h1>
+        <h2>Buttons w/o display class</h2>
+        <button type="button" class="btn btn-sm btn-primary">Primary</button>
+        <button type="button" class="btn btn-lg btn-success">Much success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-outline-info">Outlined info</button>
+        <h3>Button group</h3>
+        <!-- role=group for screen readers -->
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-sm btn-light">Primary</button>
+            <button type="button" class="btn btn-lg btn-dark">Much success</button>
+            <button type="button" class="btn btn-light">Info</button>
+        </div>
+        <h3>Alerts!</h3>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading alert-danger">
+                It's the alert heading!
+            </h4>
+            Woah!
+            <!-- aria things are for screen readers -->
+            <button class="close" data-dismiss="alert" aria-label="Close">
+                <!-- aira-hidden = ignore for screen reader -->
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+
+        <h2 class="display-4">Typography
+            <span class="badge badge-success badge-pill">2</span>
+        </h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore nulla vel adipisci facilis, ea at hic
+            exercitationem error molestiae, soluta, maiores omnis. Corrupti officiis error delectus obcaecati, officia
+            ut
+            cum?Eos deserunt odio magnam veniam, iste asperiores consectetur magni perspiciatis ea architecto.
+            Perspiciatis,
+            asperiores? Minus molestiae praesentium dolores debitis deleniti voluptas eius alias autem non, numquam
+            placeat
+            tenetur ex excepturi.
+        </p>
+        <blockquote class="blockquote text-right">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptatum accusamus eveniet tenetur
+                officiis dolore sed nobis laboriosam veniam, ad numquam, vel tempora. Non fugiat ad iste veniam!
+                Architecto, voluptates.</p>
+            <footer class="blockquote-footer">A person wrote this</footer>
+        </blockquote>
+        <p class="bg-info text-light">New paragraph with fun color</p>
+
+        <h1>THE GRID</h1>
+        <div class="row">
+            <!-- 12 units of space to use -->
+            <div class="col-6 bg-success">I am 6 units</div>
+            <div class="col-4 bg-info">I am 4 units</div>
+            <div class="col-2 bg-warning">I am 2 units</div>
+        </div>
+        <div class="row">
+            <!-- 12 units of space to use -->
+            <div class="col bg-success">I am auto units</div>
+            <div class="col bg-info">I am auto units</div>
+            <div class="col bg-warning">I am auto units</div>
+        </div>
+        <div class="row">
+            <!-- 12 units of space to use -->
+            <div class="col bg-success">I am auto units</div>
+            <div class="col-8 bg-info">I am 8 units</div>
+            <div class="col bg-warning">I am auto units</div>
+        </div>
+        <h2>Response Grid</h2>
+        <!-- grid is built on flexbox, so same terminology -->
+        <div class="row align-items-center">
+            <div class="col-sm-6 col-md-4 bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Accusamus,
+                perferendis porro
+                aperiam ab sequi beatae minus, quam saepe ex amet expedita rem nobis. Eaque, obcaecati sequi cupiditate
+                eligendi at quis?</div>
+            <div class="col-sm-6 col-md-4 bg-warning align-self-end">Lorem ipsum dolor sit amet consectetur adipisicing
+                elit.
+                Accusamus,
+                perferendis porro
+                aperiam ab sequi beatae minus, quam saepe ex amet expedita rem nobis. Eaque, obcaecati sequi cupiditate
+                eligendi at quis?</div>
+            <div class="col-sm-6 col-md-4 bg-danger">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
+                perferendis porro
+                aperiam ab sequi beatae minus, quam saepe ex amet expedita rem nobis. Eaque, obcaecati sequi cupiditate
+                eligendi at quis?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea tempore repellat quis nam
+                praesentium, minus numquam obcaecati tenetur sint alias natus, mollitia nihil repellendus in consectetur
+                animi voluptates? Nisi, tenetur.</div>
+        </div>
+        <!-- justify-content and others still allow the breakpoint usage -->
+        <div class="row border justify-content-md-center">
+            <div class="col-4 bg-dark text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+                libero rem
+                dignissimos
+                dolores minus dolor facilis perspiciatis, rerum provident, doloremque, praesentium laudantium
+                repellendus. Dignissimos voluptates distinctio nemo, harum aspernatur atque?</div>
+            <div class="col-4 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor laboriosam ea,
+                earum
+                nostrum vero omnis debitis praesentium id voluptatum, molestiae libero. Porro labore dolores libero?
+                Blanditiis repellat cum vitae repudiandae!</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <img src="https://consequenceofsound.net/wp-content/uploads/2020/06/SpongeBob-SquarePants-LGBTQ.jpg?quality=80"
+                    alt="" class="img-fluid">
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <img src="https://i.kym-cdn.com/entries/icons/original/000/022/940/mockingspongebobbb.jpg" alt=""
+                    class="img-fluid">
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <img src="https://pyxis.nymag.com/v1/imgs/ace/51c/27422703eb14bd2e3730c9df5b8486c6f1-14-SpongeBob-SquarePants.2x.rsocial.w600.jpg"
+                    alt="" class="img-fluid">
+            </div>
+        </div>
+        <h3>FORM</h3>
+        <form action="#nada">
+            <!-- form-row changes gutter size vs. regular row -->
+            <div class="form-row">
+                <div class="form-group col-md">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="lol@aim.com">
+                </div>
+                <div class="form-group col-md">
+                    <label for="pw">Pass</label>
+                    <input type="password" class="form-control" id="pw">
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

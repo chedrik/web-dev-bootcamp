@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Events!</h1>
+    <!-- This is weird / bad style to do inline. 
+        Has options for many event types-->
+    <button onclick="alert('Clicked!')">Click me please</button>
+
+    <!-- onclick property -->
+    <button id="v2">Also me</button>
+
+    <!-- best way! -->
+    <button id="v3">Event listener click!</button>
+    <button id="color">Change the color!</button>
+
+    <form action="/dontGoHere">
+        <input type="text" name="username" id="text" placeholder="username">
+        <input type="text" name="comment" placeholder="Comment me">
+        <button>Submit</button>
+    </form>
+    <h3>CHANGEABLE</h3>
+
+    <h2>Posts</h2>
+    <ul id="comments"></ul>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

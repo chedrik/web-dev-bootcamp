@@ -1,0 +1,15 @@
+{
+  "name": "language_guesser",
+  "version": "0.1.0",
+  "description": "Test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "csherman",
+  "license": "ISC",
+  "dependencies": {
+    "franc": "^5.0.0",
+    "langs": "^2.0.0"
+  }
+}

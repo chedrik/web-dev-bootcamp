@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomizer!</title>
+</head>
+
+<body>
+    <h1>Behold, a random number!</h1>
+    <!-- rand is passed as a k:v pair from the render fcn -->
+    <h2><%= rand %></h2>
+
+    <!-- Without the =, js is executed but not rendered -->
+    <% if(rand % 2 === 0) { %>
+    <h3>You have an even number!</h3>
+    <% } %>
+
+    <!-- Could also 1 line that with a ternary and <%= %> if you want -->
+
+    <!-- Looping over the arr! -->
+    <h3>Dynamic loop!</h3>
+    <ul>
+        <% for (let num of arr) { %>
+        <li><%= num %></li>
+        <% } %>
+
+    </ul>
+
+</body>
+
+</html>

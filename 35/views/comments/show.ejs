@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Details</title>
+</head>
+
+<body>
+    <h1>Viewing comment: <%= comment.id %></h1>
+    <p><%= comment.comment %> - <b><%= comment.username %></b></p>
+    <a href="/comments/<%= comment.id %>/edit">Click to edit</a>
+    <!-- method override to treat post as delete -->
+    <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
+        <button>Click to delete me</button>
+    </form>
+    <br><br>
+    <a href=" /comments">Click to go to back to all comments</a>
+</body>
+
+</html>

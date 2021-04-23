@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get & Post</title>
+</head>
+
+<body>
+    <!-- Submitting this form creates a get at /tacos?<querystrings> -->
+    <h2>get</h2>
+    <form action="http://localhost:3000/tacos" method="get">
+        <input type="text" name="meat" id="meat">
+        <input type="number" name="qty" id="qty">
+        <button>Submit</button>
+    </form>
+
+    <!-- Note: This data goes into payload of request, not query string! -->
+    <!-- Data can be any type, whereas query str is only a string -->
+    <h2>Post</h2>
+    <form action="http://localhost:3000/tacos" method="post">
+        <input type="text" name="meat" id="meat">
+        <input type="number" name="qty" id="qty">
+        <button>Submit</button>
+    </form>
+
+</body>
+
+</html>

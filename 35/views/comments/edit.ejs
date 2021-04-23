@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Details</title>
+</head>
+
+<body>
+    <h1>Editing comment: <%= comment.id %></h1>
+    <!-- use method overide to treat this as a patch! -->
+    <form action="/comments/<%= comment.id %>?_method=PATCH" method="post">
+        <textarea name="comment" id="" cols="30" rows="10"><%= comment.comment %></textarea>
+        <br>
+        <button>Update!</button>
+    </form>
+    <br>
+    <a href="/comments">Click to go to back to all comments</a>
+</body>
+
+</html>

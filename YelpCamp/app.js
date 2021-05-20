@@ -21,7 +21,7 @@ mongoose.connection.once('open', () => {
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
+app.use(express.urlencoded({ extended: true }))
 
 
 // routes
@@ -34,12 +34,21 @@ app.get('/campgrounds', async (req, res) => {
     res.render('campgrounds/index', { grounds })
 })
 
+app.get('/campgrounds/new', (req, res) => {
+    res.render('campgrounds/new')
+})
+
+app.post('/campgrounds', async (req, res) => {
+    const ground = new Campground(req.body.campground);
+    await ground.save();
+    res.redirect(`/campgrounds/${ground._id}`)
+})
+
 app.get('/campgrounds/:id', async (req, res) => {
     const { id } = req.params;
     const grounds = await Campground.findById(id);
     res.render('campgrounds/show', { grounds })
 })
-
 
 app.listen(3000, () => {
     console.log('Express app started on port 3000')

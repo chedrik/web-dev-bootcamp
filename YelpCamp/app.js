@@ -34,6 +34,12 @@ app.get('/campgrounds', async (req, res) => {
     res.render('campgrounds/index', { grounds })
 })
 
+app.get('/campgrounds/:id', async (req, res) => {
+    const { id } = req.params;
+    const grounds = await Campground.findById(id);
+    res.render('campgrounds/show', { grounds })
+})
+
 
 app.listen(3000, () => {
     console.log('Express app started on port 3000')

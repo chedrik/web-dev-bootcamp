@@ -10,7 +10,7 @@
 <body>
     <ul>
         <% for (let c of grounds) { %>
-        <li><%= c.title %> </li>
+        <li><a href="campgrounds/<%= c._id %>"><%= c.title %></a></li>
         <% } %>
     </ul>
 </body>

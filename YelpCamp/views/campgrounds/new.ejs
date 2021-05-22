@@ -1,32 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<% layout('layouts/boilerplate') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a campground</title>
-</head>
+<form action="/campgrounds" method="POST">
+    <div>
+        <label for="title">Title</label>
+        <!-- the square brackets group content in the json resp of form -->
+        <input type="text" name="campground[title]" id="title">
+    </div>
 
-<body>
-    <form action="/campgrounds" method="POST">
-        <div>
-            <label for="title">Title</label>
-            <!-- the square brackets group content in the json resp of form -->
-            <input type="text" name="campground[title]" id="title">
-        </div>
+    <div>
+        <label for="location">Location</label>
+        <!-- the square brackets group content in the json resp of form -->
+        <input type="text" name="campground[location]" id="location">
+    </div>
 
-        <div>
-            <label for="location">Location</label>
-            <!-- the square brackets group content in the json resp of form -->
-            <input type="text" name="campground[location]" id="location">
-        </div>
+    <button>Add</button>
+</form>
 
-        <button>Add</button>
-    </form>
-
-    <footer>
-        <a href="/campgrounds">Go back!</a>
-    </footer>
-</body>
-
-</html>
+<footer>
+    <a href="/campgrounds">Go back!</a>
+</footer>

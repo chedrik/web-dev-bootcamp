@@ -1,7 +1,17 @@
 <% layout('layouts/boilerplate') %>
 
 <h1>Viewing campground details...</h1>
-<p><%= grounds.title %> is located at <%= grounds.location %></p>
+<p><%= grounds.title %> is located in <%= grounds.location %></p>
+
+<figure class="figure">
+    <img src="<%= grounds.image %>" class="figure-img img-fluid" alt="Campground default image">
+    <figcaption class="figure-caption"><%= grounds.description %></figcaption>
+</figure>
+
+<section>
+    <p>Price per night: <%= grounds.price %></p>
+</section>
+
 <a href="/campgrounds/<%= grounds._id %>/edit">Edit</a>
 
 <form action="/campgrounds/<%= grounds._id %>?_method=DELETE" method="POST">

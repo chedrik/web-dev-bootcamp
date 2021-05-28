@@ -1,23 +1,30 @@
 <% layout('layouts/boilerplate') %>
 
 <h1>Viewing campground details...</h1>
-<p><%= grounds.title %> is located in <%= grounds.location %></p>
 
-<figure class="figure">
-    <img src="<%= grounds.image %>" class="figure-img img-fluid" alt="Campground default image">
-    <figcaption class="figure-caption"><%= grounds.description %></figcaption>
-</figure>
-
-<section>
-    <p>Price per night: <%= grounds.price %></p>
-</section>
-
-<a href="/campgrounds/<%= grounds._id %>/edit">Edit</a>
-
-<form action="/campgrounds/<%= grounds._id %>?_method=DELETE" method="POST">
-    <button>Delete</button>
-</form>
-
-<footer>
-    <a href="/campgrounds">Back to all campgrounds</a>
-</footer>
+<div class="row">
+    <div class="col-md">
+        <div class="card mb-3">
+            <img class="card-img-top" src="<%= grounds.image %>" alt="Campground image">
+            <div class="card-body">
+                <h5 class="card-title"><%= grounds.title %></h5>
+                <p class="card-text"><%= grounds.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= grounds.location %></li>
+                <li class="list-group-item">$<%= grounds.price %>/night</li>
+            </ul>
+            <div class="card-body">
+                <a class="card-link btn btn-dark" href="/campgrounds/<%= grounds._id %>/edit">Edit</a>
+                <!-- d-inline prevents form from going to a new line -->
+                <form class="d-inline" action="/campgrounds/<%= grounds._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted">
+                <!-- TODO: style the ugly link -->
+                <a href="/campgrounds">Back to all campgrounds</a>
+            </div>
+        </div>
+    </div>
+</div>

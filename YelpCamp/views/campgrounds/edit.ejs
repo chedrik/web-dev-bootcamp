@@ -3,28 +3,29 @@
 <div class="row">
     <h1 class="text-center mb-3">Edit Campground</h1>
     <div class="col-6 offset-3">
-        <form action="/campgrounds/<%= grounds._id%>?_method=PUT" method="POST">
+        <form action="/campgrounds/<%= grounds._id%>?_method=PUT" method="POST" class="validated-form" novalidate>
             <div class="form-group mb-3">
                 <label for="title">Title</label>
                 <!-- the square brackets group content in the json resp of form -->
-                <input class="form-control" type="text" name="campground[title]" id="title"
-                    value="<%= grounds.title %>">
+                <input class="form-control" type="text" name="campground[title]" id="title" value="<%= grounds.title %>"
+                    required>
             </div>
 
             <div class="form-group mb-3">
                 <label class="form-label" for="location">Location</label>
                 <input class="form-control" type="text" name="campground[location]" id="location"
-                    value="<%= grounds.location %>">
+                    value="<%= grounds.location %>" required>
             </div>
 
             <div class="form-group mb-3">
                 <label class="form-label" for="img">Image URL</label>
-                <input class="form-control" type="text" name="campground[image]" id="img" value="<%= grounds.image %>">
+                <input class="form-control" type="text" name="campground[image]" id="img" value="<%= grounds.image %>"
+                    required>
             </div>
 
             <div class="form-group mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3"
+                <textarea class="form-control" id="description" rows="3" required
                     name="campground[description]"><%= grounds.description %></textarea>
             </div>
 
@@ -32,10 +33,10 @@
                 <label class="form-label" for="price">Campground Price</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="price-label">$</span>
+                        <span class="input-group-text" id="price-label" required>$</span>
                     </div>
                     <input type="text" class="form-control" placeholder="0.00" aria-label="price" id="price"
-                        aria-describedby="price-label" name="campground[price]" value="<%= grounds.price %>">
+                        aria-describedby="price-label" name="campground[price]" value="<%= grounds.price %>" required>
                 </div>
             </div>
 

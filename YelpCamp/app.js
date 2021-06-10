@@ -45,6 +45,9 @@ app.get('/campgrounds/new', (req, res) => {
 })
 
 app.post('/campgrounds', catchAsync(async (req, res, next) => {
+    // this body check really only checks if you post from API
+    // form client side validation should handle this otherwise
+    if (!req.body.campground) throw new ExpressError('Invalid Campground Data', 400)
     const grounds = new Campground(req.body.campground);
     await grounds.save();
     res.redirect(`/campgrounds/${grounds._id}`)
@@ -74,8 +77,14 @@ app.delete('/campgrounds/:id', catchAsync(async (req, res, next) => {
     res.redirect('/campgrounds')
 }))
 
+// any request, any url. IE. generic 404
+app.all('*', (req, res, next) => {
+    next(new ExpressError('404 - Page Not Found', 404))
+})
+
 app.use((err, req, res, next) => {
-    res.send(`Generic error ${err} caught`)
+    const { status = 500, message = 'Server error' } = err;
+    res.status(status).send(message)
 })
 
 app.listen(3000, () => {

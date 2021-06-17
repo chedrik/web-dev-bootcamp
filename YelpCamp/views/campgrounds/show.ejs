@@ -3,7 +3,7 @@
 <h1>Viewing campground details...</h1>
 
 <div class="row">
-    <div class="col-md">
+    <div class="col-6">
         <div class="card mb-3">
             <img class="card-img-top" src="<%= grounds.image %>" alt="Campground image">
             <div class="card-body">
@@ -26,6 +26,8 @@
                 <a href="/campgrounds">Back to all campgrounds</a>
             </div>
         </div>
+    </div>
+    <div class="col-6">
         <!-- Reviews -->
         <h2>Leave a Review</h2>
         <form action="/campgrounds/<%= grounds._id %>/reviews" class="mb-3 validated-form" method="POST" novalidate>
@@ -40,5 +42,15 @@
             </div>
             <button class="btn btn-light">Submit Review</button>
         </form>
+        <section class="mb-3">
+            <% for (let rev of grounds.reviews) { %>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Rating: <%= rev.rating %></h5>
+                    <p class="card-text"><%= rev.body %></p>
+                </div>
+            </div>
+            <% } %>
+        </section>
     </div>
 </div>

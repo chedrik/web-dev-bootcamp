@@ -103,6 +103,16 @@ app.post('/campgrounds/:id/reviews', validateReview, catchAsync(async (req, res,
     res.redirect(`/campgrounds/${grounds._id}`)
 }))
 
+app.delete('/campgrounds/:id/reviews/:reviewId', catchAsync(async (req, res, next) => {
+    const { id, reviewId } = req.params
+    // remove the review from the db
+    await Review.findByIdAndDelete(reviewId);
+    // we need to then remove the reference to the deleted review
+    // we can use '$pull' operator from mongo to remove from array
+    await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    res.redirect(`/campgrounds/${id}`)
+}))
+
 
 // any request, any url. IE. generic 404
 app.all('*', (req, res, next) => {

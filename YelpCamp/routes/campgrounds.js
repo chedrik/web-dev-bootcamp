@@ -30,18 +30,27 @@ router.get('/new', (req, res) => {
 router.post('/', validateCampground, catchAsync(async (req, res, next) => {
     const grounds = new Campground(req.body.campground);
     await grounds.save();
+    req.flash('success', 'Created a new campground!');
     res.redirect(`/campgrounds/${grounds._id}`)
 }))
 
 router.get('/:id', catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const grounds = await Campground.findById(id).populate('reviews');
+    if (!grounds) {  // if the id is not the right format, this will fail prior to if statement
+        req.flash('error', 'Campground not found!')
+        return res.redirect('/campgrounds')
+    }
     res.render('campgrounds/show', { grounds })
 }))
 
 router.get('/:id/edit', catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const grounds = await Campground.findById(id);
+    if (!grounds) {
+        req.flash('error', 'Campground not found!')
+        return res.redirect('/campgrounds')
+    }
     res.render('campgrounds/edit', { grounds })
 }))
 
@@ -54,6 +63,7 @@ router.put('/:id', validateCampground, catchAsync(async (req, res, next) => {
 router.delete('/:id', catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const grounds = await Campground.findByIdAndDelete(id);
+    req.flash('success', 'Successfully deleted the campground!');
     res.redirect('/campgrounds')
 }))
 

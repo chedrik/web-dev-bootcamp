@@ -9,6 +9,9 @@ const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
 const campgrounds = require('./routes/campgrounds');
 const reviews = require('./routes/reviews');
+const passport = require('passport');
+const localStrategy = require('passport-local');
+const User = require('./models/user');
 
 // MongoDB setup
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
@@ -45,6 +48,13 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());  // needs to be after app.use(session())
+// all 3 of the User fcns below are auto-added by the passport-local-mongoose pkg
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());  // how is it stored in session
+passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('success');

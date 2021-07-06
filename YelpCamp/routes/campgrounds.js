@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const catchAsync = require('../utils/catchAsync');
+const { isLoggedIn } = require('../utils/auth');
 const ExpressError = require('../utils/ExpressError');
 const Campground = require('../models/campground');
 
@@ -23,11 +24,11 @@ router.get('/', catchAsync(async (req, res, next) => {
     res.render('campgrounds/index', { grounds })
 }))
 
-router.get('/new', (req, res) => {
+router.get('/new', isLoggedIn, (req, res) => {
     res.render('campgrounds/new')
 })
 
-router.post('/', validateCampground, catchAsync(async (req, res, next) => {
+router.post('/', isLoggedIn, validateCampground, catchAsync(async (req, res, next) => {
     const grounds = new Campground(req.body.campground);
     await grounds.save();
     req.flash('success', 'Created a new campground!');
@@ -44,7 +45,7 @@ router.get('/:id', catchAsync(async (req, res, next) => {
     res.render('campgrounds/show', { grounds })
 }))
 
-router.get('/:id/edit', catchAsync(async (req, res, next) => {
+router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const grounds = await Campground.findById(id);
     if (!grounds) {
@@ -54,13 +55,13 @@ router.get('/:id/edit', catchAsync(async (req, res, next) => {
     res.render('campgrounds/edit', { grounds })
 }))
 
-router.put('/:id', validateCampground, catchAsync(async (req, res, next) => {
+router.put('/:id', isLoggedIn, validateCampground, catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const grounds = await Campground.findByIdAndUpdate(id, { ...req.body.campground }, { runValidators: true, new: true });
     res.redirect(`/campgrounds/${grounds._id}`)
 }))
 
-router.delete('/:id', catchAsync(async (req, res, next) => {
+router.delete('/:id', isLoggedIn, catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const grounds = await Campground.findByIdAndDelete(id);
     req.flash('success', 'Successfully deleted the campground!');

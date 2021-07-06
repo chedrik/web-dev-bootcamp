@@ -8,13 +8,19 @@ router.get('/register', (req, res) => {
     res.render('users/register')
 })
 
-router.post('/register', catchAsync(async (req, res) => {
+router.post('/register', catchAsync(async (req, res, next) => {
     const { username, email, password } = req.body;
     const user = new User({ email, username });
     try {
         const registeredUser = await User.register(user, password);
-        req.flash('success', 'Welcome! Successfully registered.');
-        res.redirect('/campgrounds');
+        // we should log the user in when they register!
+        req.login(registeredUser, err => {
+            if (err) {
+                return next(e);
+            }
+            req.flash('success', 'Welcome! Successfully registered.');
+            res.redirect('/campgrounds');
+        })
     } catch (e) {
         req.flash('error', e.message);
         res.redirect('/register');

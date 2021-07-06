@@ -29,6 +29,7 @@ const seedDB = async (numToSeed = 50) => {
             location: `${cities[rand].city},${cities[rand].state}`,
             image: 'https://source.unsplash.com/collection/9822900',  // random image for seed
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, magni! Temporibus vero dicta animi aperiam similique ex dignissimos impedit veritatis ratione maxime in eligendi suscipit molestias quidem delectus, facilis consequuntur.',
+            author: '60e3738170db0647135fa31d',  // matched to cs
         })
         await camp.save()
             .then(console.log(`Done seeding site ${i + 1}`))

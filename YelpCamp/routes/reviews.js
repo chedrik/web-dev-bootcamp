@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });  // mergeparams now will pass id
-
+const { isLoggedIn, isReviewAuthor } = require('../utils/auth');
 const catchAsync = require('../utils/catchAsync');
 const ExpressError = require('../utils/ExpressError');
 const Campground = require('../models/campground');
@@ -17,9 +17,10 @@ const validateReview = (req, res, next) => {
     return next();
 }
 
-router.post('/', validateReview, catchAsync(async (req, res, next) => {
+router.post('/', isLoggedIn, validateReview, catchAsync(async (req, res, next) => {
     const grounds = await Campground.findById(req.params.id);
     const review = new Review(req.body.review);
+    review.author = req.user._id;
     grounds.reviews.push(review)
     await grounds.save(); // TODO: parallelize saves
     await review.save();
@@ -27,7 +28,7 @@ router.post('/', validateReview, catchAsync(async (req, res, next) => {
     res.redirect(`/campgrounds/${grounds._id}`)
 }))
 
-router.delete('/:reviewId', catchAsync(async (req, res, next) => {
+router.delete('/:reviewId', isLoggedIn, isReviewAuthor, catchAsync(async (req, res, next) => {
     const { id, reviewId } = req.params
     // remove the review from the db
     await Review.findByIdAndDelete(reviewId);

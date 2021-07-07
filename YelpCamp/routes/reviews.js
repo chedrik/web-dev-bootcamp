@@ -1,21 +1,10 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });  // mergeparams now will pass id
-const { isLoggedIn, isReviewAuthor } = require('../utils/auth');
+const { isLoggedIn, isReviewAuthor, validateReview } = require('../utils/middleware');
 const catchAsync = require('../utils/catchAsync');
-const ExpressError = require('../utils/ExpressError');
 const Campground = require('../models/campground');
 const Review = require('../models/review');
 
-const { reviewSchema } = require('../utils/schemas');
-
-const validateReview = (req, res, next) => {
-    const { error } = reviewSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(e => e.message).join(',');
-        throw new ExpressError(msg, 400)
-    }
-    return next();
-}
 
 router.post('/', isLoggedIn, validateReview, catchAsync(async (req, res, next) => {
     const grounds = await Campground.findById(req.params.id);

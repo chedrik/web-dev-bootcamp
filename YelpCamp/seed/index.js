@@ -27,7 +27,16 @@ const seedDB = async (numToSeed = 50) => {
             title: `${getRandElement(descriptors)} ${getRandElement(places)}`,
             price: price,
             location: `${cities[rand].city},${cities[rand].state}`,
-            image: 'https://source.unsplash.com/collection/9822900',  // random image for seed
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/chedrik/image/upload/v1625795234/YelpCamp/d1add2vvzigdcxzvavnq.jpg',
+                    filename: 'YelpCamp/d1add2vvzigdcxzvavnq'
+                },
+                {
+                    url: 'https://res.cloudinary.com/chedrik/image/upload/v1625795234/YelpCamp/lmkjowqphgyzqfsnwge9.jpg',
+                    filename: 'YelpCamp/lmkjowqphgyzqfsnwge9'
+                }
+            ],
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, magni! Temporibus vero dicta animi aperiam similique ex dignissimos impedit veritatis ratione maxime in eligendi suscipit molestias quidem delectus, facilis consequuntur.',
             author: '60e3738170db0647135fa31d',  // matched to cs
         })

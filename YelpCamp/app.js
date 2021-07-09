@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+    // This now puts all env variables into process.env
+    require('dotenv').config();
+}
 // imports
 const express = require('express');
 const ejsMate = require('ejs-mate');
@@ -6,12 +10,12 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
+const localStrategy = require('passport-local');
 const ExpressError = require('./utils/ExpressError');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
-const passport = require('passport');
-const localStrategy = require('passport-local');
 const User = require('./models/user');
 
 // MongoDB setup
@@ -32,7 +36,8 @@ mongoose.connection.once('open', () => {
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.urlencoded({ extended: true }))
+// urlencoded here will not allow us to upload images!
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public'))) // how to serve static assets
 app.engine('ejs', ejsMate);

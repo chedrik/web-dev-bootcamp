@@ -53,7 +53,7 @@ const getRandElement = (arr) => {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-seedDB()
+seedDB(400)
     .then(() => {
         mongoose.connection.close();
     })

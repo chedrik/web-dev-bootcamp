@@ -27,6 +27,10 @@ const seedDB = async (numToSeed = 50) => {
             title: `${getRandElement(descriptors)} ${getRandElement(places)}`,
             price: price,
             location: `${cities[rand].city},${cities[rand].state}`,
+            geometry: {
+                type: 'Point',
+                coordinates: [cities[rand].longitude, cities[rand].latitude]
+            },
             images: [
                 {
                     url: 'https://res.cloudinary.com/chedrik/image/upload/v1625795234/YelpCamp/d1add2vvzigdcxzvavnq.jpg',

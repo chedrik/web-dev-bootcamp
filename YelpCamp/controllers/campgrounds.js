@@ -1,4 +1,5 @@
 const Campground = require('../models/campground');
+const { cloudinary } = require('../cloudinary');
 
 module.exports.index = async (req, res, next) => {
     const grounds = await Campground.find({});
@@ -43,12 +44,26 @@ module.exports.editForm = async (req, res, next) => {
 module.exports.updateCampground = async (req, res, next) => {
     const { id } = req.params;
     const grounds = await Campground.findByIdAndUpdate(id, { ...req.body.campground }, { runValidators: true, new: true });
+    const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    grounds.images.push(...imgs);
+    await grounds.save(); // TODO: sub-optimal to find and update twice
+
+    if (req.body.deleteImages) {
+        for (let f of req.body.deleteImages) {
+            await cloudinary.uploader.destroy(f);
+        }
+        // TODO: can this be updated in the area and then 1 save?
+        await grounds.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } });
+    }
     res.redirect(`/campgrounds/${grounds._id}`)
 }
 
 module.exports.deleteCampground = async (req, res, next) => {
     const { id } = req.params;
     const grounds = await Campground.findByIdAndDelete(id);
+    for (let f of grounds.images) {
+        await cloudinary.uploader.destroy(f.filename);
+    }
     req.flash('success', 'Successfully deleted the campground!');
     res.redirect('/campgrounds')
 };

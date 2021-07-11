@@ -1,0 +1,30 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+    url("https://trumpwallpapers.com/wp-content/uploads/Camping-Wallpaper-01-1920x1080-1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.cover-container {
+    max-width: 60vw;  
+    /* 60% of the view width */
+}
+
+.nav-link {
+    padding: 0.25rem 0;
+    margin-left: 1rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover{
+    color: rgb(255,255,255);
+    border-bottom-color: rgba(255,255,255,0.6);
+}
+
+.btn-secondary, .btn-secondary:hover{
+    color:#333;
+    box-shadow: 0 0.5em 0.5em -0.4em #333;
+}

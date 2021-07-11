@@ -19,9 +19,12 @@ const userRoutes = require('./routes/users');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const MongoStore = require('connect-mongo');
 
 // MongoDB setup
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {
+const dbUrl = process.env.DB_URL;
+// const dbUrl = 'mongodb://localhost:27017/yelp-camp';
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -95,10 +98,10 @@ app.use(
     })
 );
 ////// end of copied and modified from colt ////////
-
+const secret = process.env.SECRET || 'not-a-real-secret-yet';
 const sessionConfig = {
     name: 'definitely-not-a-session', // changes the default session name instead of connect.sid
-    secret: 'not-a-real-secret-yet',
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -106,7 +109,15 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24 * 7, // in ms, 1 week
         httpOnly: true,  // not accesible through js!
         // secure: true, // makes cookie only work on https
-    }
+    },
+    store: MongoStore.create({
+        mongoUrl: dbUrl,
+        touchAfter: 24 * 3600, // time period in seconds
+        ttl: 7 * 24 * 60 * 60, // = 7 days
+        crypto: {
+            secret: secret
+        }
+    }),
 }
 app.use(session(sessionConfig))
 app.use(flash());

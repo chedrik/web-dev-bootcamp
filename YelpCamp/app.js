@@ -39,6 +39,14 @@ mongoose.connection.once('open', () => {
 
 // express middleware
 const app = express();
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user; // req.user is auto added as deserialized by passport
+    next();
+})
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 // urlencoded here will not allow us to upload images!
@@ -128,13 +136,6 @@ app.use(passport.session());  // needs to be after app.use(session())
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());  // how is it stored in session
 passport.deserializeUser(User.deserializeUser());
-
-app.use((req, res, next) => {
-    res.locals.success = req.flash('success');
-    res.locals.error = req.flash('error');
-    res.locals.user = req.user; // req.user is auto added as deserialized by passport
-    next();
-})
 
 // routes
 app.use('/campgrounds', campgroundRoutes);

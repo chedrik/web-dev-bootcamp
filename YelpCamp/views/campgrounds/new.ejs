@@ -1,51 +1,55 @@
 <% layout('layouts/boilerplate') %>
 
 <div class="row">
-    <h1 class="text-center mb-3">New Campground</h1>
-    <div class="col-6 offset-3">
-        <!-- novalidate blocks default browser behavior, allows bootstrap to handle-->
-        <form action="/campgrounds" method="POST" class="validated-form" novalidate enctype="multipart/form-data">
-            <div class="form-group mb-3">
-                <label for="title">Title</label>
-                <!-- the square brackets group content in the json resp of form -->
-                <input class="form-control" type="text" name="campground[title]" id="title" required>
-            </div>
-
-            <div class="form-group mb-3">
-                <label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" name="campground[location]" id="location" required>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="img" class="form-label">Images</label>
-                <input class="form-control" name="image" type="file" id="img" multiple>
-            </div>
-
-            <div class="form-group mb-3">
-                <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3" name="campground[description]"
-                    required></textarea>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" for="price">Campground Price</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="price-label" required>$</span>
+    <div class="col-md-6 offset-md-3">
+        <div class="card shadow">
+            <h5 class="text-center card-title mt-3">New Campground</h5>
+            <div class="card-body">
+                <!-- novalidate blocks default browser behavior, allows bootstrap to handle-->
+                <form action="/campgrounds" method="POST" class="validated-form" novalidate
+                    enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                        <label for="title">Title</label>
+                        <!-- the square brackets group content in the json resp of form -->
+                        <input class="form-control" type="text" name="campground[title]" id="title" required>
                     </div>
-                    <input type="text" class="form-control" placeholder="0.00" aria-label="price" id="price"
-                        aria-describedby="price-label" name="campground[price]" required>
-                </div>
-            </div>
 
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Add</button>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="location">Location</label>
+                        <input class="form-control" type="text" name="campground[location]" id="location" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="img" class="form-label">Images</label>
+                        <input class="form-control" name="image" type="file" id="img" multiple>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" id="description" rows="3" name="campground[description]"
+                            required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="price">Campground Price</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="price-label" required>$</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="0.00" aria-label="price" id="price"
+                                aria-describedby="price-label" name="campground[price]" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-100">Add</button>
+                    </div>
+                    <div class="row mt-3">
+                        <div>
+                            <a href="/campgrounds" class="btn btn-light">Go back!</a>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-</div>
-<div class="row mt-3">
-    <div class="col-6 offset-3">
-        <a href="/campgrounds">Go back!</a>
+        </div>
     </div>
 </div>
